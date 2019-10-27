@@ -3,14 +3,14 @@
 Make [Discourse](https://www.discourse.org/) accept the "Api-Key:" HTTP header in CORS requests.
 
 
-## Description
+## 1. Description
 
-By default, Discourse does not support authentication with the "`API-Key:`" HTTP header in CORS requests. It only supports that authentication method on non-CORS requests. Non-CORS requests are basically any requests sent by a user agent that is not a browser, for example the default requests sent by `curl` unless you add specific headers to make it a CORS request.
+By default, the open source forum software [Discourse](https://www.discourse.org/) does not support authentication with the "`API-Key:`" HTTP header in CORS requests. It only supports that authentication method on non-CORS requests. Non-CORS requests are basically any requests sent by a user agent that is not a browser, for example the default requests sent by `curl` unless you add specific headers to make it a CORS request.
 
 In some circumstances, such as our [tool to post survey responses to Discourse](https://github.com/edgeryders/edgeryders-form), that limitation has to be lifted. That's what this plugin does. Now you can use Discourse's so-called "Admin API" keys with JavaScript applications used inside a web browser.
 
 
-## Installation
+## 2. Installation
 
 1. Make sure you have a recent Discourse version. In the `stable` branch, only recent (approx. 2019-10-01) Discourse versions support authentication with an `Api-Key:` HTTP header at all. In the `master` branch, this was introduced somewhat earlier. Older versions only support API key authentication as a GET parameter, which is obviously not possible for POST etc. requests.
 
@@ -24,7 +24,7 @@ In some circumstances, such as our [tool to post survey responses to Discourse](
 3. Restart your Discourse web server to enable the plugin.
 
 
-## Security considerations
+## 3. Security considerations
 
 **Not a risk per se.** Note that this is not more of a security risk than listing any website as an allowed CORS origin in your Discourse installation. In all cases, the Discourse admin has to make sure before that the site is trustable. The authentication method it uses to connect to Discourse, as such, does not make a site trustable or untrustable.
 
